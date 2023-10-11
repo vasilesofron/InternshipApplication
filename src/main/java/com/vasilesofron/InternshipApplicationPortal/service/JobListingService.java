@@ -62,4 +62,14 @@ public class JobListingService {
         return jobListingRepository.save(jobListing);
     }
 
+    public List<JobListing> getAllJobListings(){
+        return jobListingRepository.findAll();
+    }
+
+    public void deleteJobListingById(Long jobListingId){
+        JobListing jobListing = jobListingRepository.findById(jobListingId)
+                .orElseThrow(() -> new EntityNotFoundException("Job Listing with ID: " + jobListingId + " does not exist."));
+        jobListingRepository.delete(jobListing);
+    }
+
 }
