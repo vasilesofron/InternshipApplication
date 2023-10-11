@@ -33,7 +33,7 @@ public class JobListingService {
     }
      */
 
-
+    /*
     public JobListing createJobListing(Long employerId, JobListing jobListingDetails){
         Employer employer = employerRepository.findById(employerId)
                 .orElseThrow(() -> new EntityNotFoundException("Employer with the ID: " + employerId + " does not exist."));
@@ -46,6 +46,20 @@ public class JobListingService {
 
         return jobListingRepository.save(jobListing);
 
+    }*/
+
+    public JobListing createJobListing(Long employerId, JobListing jobListingDetails){
+        Employer employer = employerRepository.findById(employerId)
+                .orElseThrow(() -> new EntityNotFoundException("Eployer with ID: " + employerId + " does not exist."));
+        JobListing jobListing = new JobListing();
+        jobListing.setPosition(jobListingDetails.getPosition());
+        jobListing.setDescription(jobListingDetails.getDescription());
+        jobListing.setLanguage(jobListingDetails.getLanguage());
+
+        jobListing.setEmployer(employer);
+        employer.getJobListings().add(jobListing);
+
+        return jobListingRepository.save(jobListing);
     }
 
 }

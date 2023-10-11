@@ -1,6 +1,7 @@
 package com.vasilesofron.InternshipApplicationPortal.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,8 +15,10 @@ public class JobListing {
     @Column(name = "position")
     private String position;
 
-    @Column(name = "employer")
-    private String employer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employer_id")
+    @JsonIgnore
+    private Employer employer;
     @Column(name = "description")
     private String description;
     @Column(name = "language")
@@ -53,17 +56,17 @@ public class JobListing {
         this.language = language;
     }
 
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public JobListing(String employer, String position, String description, String language) {
-        this.employer = employer;
+    public JobListing(String position, Employer employer, String description, String language) {
         this.position = position;
+        this.employer = employer;
         this.description = description;
         this.language = language;
     }

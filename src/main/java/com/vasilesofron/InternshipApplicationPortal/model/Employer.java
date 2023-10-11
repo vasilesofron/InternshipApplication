@@ -3,6 +3,7 @@ package com.vasilesofron.InternshipApplicationPortal.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +17,8 @@ public class Employer {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
-    private List<JobListing> jobListing;
+    @OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<JobListing> jobListings = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -35,12 +36,12 @@ public class Employer {
         this.name = name;
     }
 
-    public List<JobListing> getJobListing() {
-        return jobListing;
+    public List<JobListing> getJobListings() {
+        return jobListings;
     }
 
-    public void setJobListing(List<JobListing> jobListing) {
-        this.jobListing = jobListing;
+    public void setJobListings(List<JobListing> jobListing) {
+        this.jobListings = jobListing;
     }
 
     public Employer(String name) {
