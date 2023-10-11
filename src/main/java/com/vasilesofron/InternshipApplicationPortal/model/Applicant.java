@@ -28,6 +28,10 @@ public class Applicant {
     @Column(name = "addressLineTwo")
     private String addressLineTwo;
 
+    @OneToOne(mappedBy = "applicants")
+    @JoinColumn(name = "job_listing_id")
+    private JobListing jobListing;
+
     public Long getId() {
         return id;
     }
