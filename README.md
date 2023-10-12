@@ -10,7 +10,8 @@ This is a project created for the ddroidd Boot Camp 2023, Java Backend.
 
 This project allows the creation of applicants, job listings, employers and the application of different applicants to a job listing created by an employer.
 
-The structure of the project
+The project has been divided in different layers:
+Model Layer | Controller Layer | Service Layer | Repositories
 
 This is possible by accesing different endpoints via a GET/POST/DELETE request.
 
@@ -29,3 +30,9 @@ The project has the following endpoints:
 /applicants [GET]
 /applicants/create-applicant [POST]
 /applicants/{employerId} [GET]
+
+In this README I have also added the ERD(entity relationship diagram).
+
+Unfortunately, I was unable to finish the entire project before the deadline. There are a few errors in the project, such as 'The same applicant can apply to the same position multiple times. Also, there could have been a larger number of unit tests. 
+
+Thank you! 
