@@ -40,6 +40,8 @@ public class Employer {
         return jobListings;
     }
 
+
+
     public void setJobListings(List<JobListing> jobListing) {
         this.jobListings = jobListing;
     }

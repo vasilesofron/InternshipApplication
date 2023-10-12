@@ -28,7 +28,7 @@ public class Applicant {
     @Column(name = "addressLineTwo")
     private String addressLineTwo;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "job_listing_id")
     private JobListing jobListing;
 
