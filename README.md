@@ -1,4 +1,3 @@
-![Sofron_Vasile_ERD_ddroidd](https://github.com/vasilesofron/ddroid_InternshipApplicationPortal/assets/73953076/bb7ccad6-ed37-4340-a184-754f2b9aa360)
 # ddroid_InternshipApplicationPortal - Vasile Sofron
 
 This is a project created for the ddroidd Boot Camp 2023, Java Backend.
@@ -37,3 +36,5 @@ In this README I have also added the ERD(entity relationship diagram).
 Unfortunately, I was unable to finish the entire project before the deadline. There are a few errors in the project, such as 'The same applicant can apply to the same position multiple times. Also, there could have been a larger number of unit tests. 
 
 Thank you! 
+
+![Sofron_Vasile_ERD_ddroidd](https://github.com/vasilesofron/ddroid_InternshipApplicationPortal/assets/73953076/bb7ccad6-ed37-4340-a184-754f2b9aa360)
