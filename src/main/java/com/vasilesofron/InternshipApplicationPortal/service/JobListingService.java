@@ -55,7 +55,6 @@ public class JobListingService {
         jobListing.setPosition(jobListingDetails.getPosition());
         jobListing.setDescription(jobListingDetails.getDescription());
         jobListing.setLanguage(jobListingDetails.getLanguage());
-
         jobListing.setEmployer(employer);
         employer.getJobListings().add(jobListing);
 

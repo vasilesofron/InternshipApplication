@@ -11,27 +11,19 @@ public class Application {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "employer_id", referencedColumnName = "id")
-    Employer employer;
+    @JoinColumn(name = "applicant_id", referencedColumnName = "id")
+    Applicant applicant;
 
     @OneToOne
     @JoinColumn(name = "joblisting_id", referencedColumnName = "id")
     JobListing jobListing;
 
-    public Long getId() {
-        return id;
+    public Applicant getApplicant() {
+        return applicant;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Employer getEmployer() {
-        return employer;
-    }
-
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
+    public void setApplicant(Applicant applicant) {
+        this.applicant = applicant;
     }
 
     public JobListing getJobListing() {
@@ -42,11 +34,12 @@ public class Application {
         this.jobListing = jobListing;
     }
 
-    public Application(Employer employer, JobListing jobListing) {
-        this.employer = employer;
+    public Application(Applicant applicant, JobListing jobListing) {
+        this.applicant = applicant;
         this.jobListing = jobListing;
     }
 
     public Application() {
     }
 }
+
