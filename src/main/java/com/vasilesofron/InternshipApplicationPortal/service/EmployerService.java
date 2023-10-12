@@ -14,7 +14,7 @@ public class EmployerService {
     @Resource
     private EmployerRepository employerRepository;
 
-
+    // We access the methods from the controller.
 
     public List<Employer> getAllEmployers(){
         return employerRepository.findAll();

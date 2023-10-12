@@ -6,6 +6,7 @@ import com.vasilesofron.InternshipApplicationPortal.service.JobListingService;
 import jakarta.annotation.Resource;
 import jakarta.persistence.EntityNotFoundException;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ import java.util.NoSuchElementException;
 @RequestMapping("/job-listing")
 public class JobListingController {
 
-    @Resource
+    @Autowired
     private JobListingService jobListingService;
 
     @GetMapping
@@ -32,6 +33,7 @@ public class JobListingController {
 
     @DeleteMapping("/delete-job-listing/{jobListingId}")
     public ResponseEntity<?> deleteJobListing(@PathVariable Long jobListingId){
+        // Should use Exception Handler / Custom exception classes
         try {
             jobListingService.deleteJobListingById(jobListingId);
             return ResponseEntity.ok("Job Listing deleted.");
@@ -45,6 +47,7 @@ public class JobListingController {
         return new ResponseEntity<>(jobListingService.findAllByEmployer(employerId), HttpStatus.OK);
     }
 
+    // Same exceptions that we find in each controller.
     @ExceptionHandler(HttpClientErrorException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleBadRequest(HttpClientErrorException exception){

@@ -28,6 +28,7 @@ public class ApplicantService {
     private JobListingRepository jobListingRepository;
 
 
+    // We access the methods from the controller.
     public Applicant saveApplicant(Applicant applicant) {
         return applicantRepository.save(applicant);
     }

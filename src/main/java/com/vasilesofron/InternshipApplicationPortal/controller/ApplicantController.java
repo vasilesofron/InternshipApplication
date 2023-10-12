@@ -42,7 +42,7 @@ public class ApplicantController {
         return new ResponseEntity<>(applicantService.findAllApplicantsByEmployer(employerId), HttpStatus.OK);
     }
 
-
+    // Same ExceptionHandler in every controller.
     @ExceptionHandler(NoSuchElementException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleNoSuchElementFoundException(

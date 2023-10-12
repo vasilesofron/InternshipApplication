@@ -42,6 +42,7 @@ public class ApplicationController {
         return new ResponseEntity<>(applicationService.getAllApplicantByJobListing(jobListingId), HttpStatus.OK);
     }
 
+    // Same ExceptionHandler in every controller.
     @ExceptionHandler(NoSuchElementException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleNotFoundException(NoSuchElementException exception){

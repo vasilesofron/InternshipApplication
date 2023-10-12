@@ -20,38 +20,11 @@ public class JobListingService {
     @Resource
     private EmployerRepository employerRepository;
 
-    /*public JobListing createJobListing(Long employerId, JobListing jobListing){
-        Employer employer = employerRepository.findEmployerById(employerId);
-        if(employer != null){
-            jobListingRepository.save(jobListing);
-            List<JobListing> newJobListing = employer.getJobListing();
-            newJobListing.add(jobListing);
-            employer.setJobListing(newJobListing);
-            return jobListing;
-        }
-        return null;
-    }
-     */
-
-    /*
-    public JobListing createJobListing(Long employerId, JobListing jobListingDetails){
-        Employer employer = employerRepository.findById(employerId)
-                .orElseThrow(() -> new EntityNotFoundException("Employer with the ID: " + employerId + " does not exist."));
-
-        JobListing jobListing = new JobListing();
-        jobListing.setEmployer(jobListingDetails.getEmployer());
-        jobListing.setPosition(jobListingDetails.getPosition());
-        jobListing.setDescription(jobListingDetails.getDescription());
-        jobListing.setLanguage(jobListingDetails.getLanguage());
-
-        return jobListingRepository.save(jobListing);
-
-    }*/
-
     public JobListing createJobListing(Long employerId, JobListing jobListingDetails){
         Employer employer = employerRepository.findById(employerId)
                 .orElseThrow(() -> new EntityNotFoundException("Eployer with ID: " + employerId + " does not exist."));
         JobListing jobListing = new JobListing();
+        // We use the getters and setter from the model to create the new jobListing.
         jobListing.setPosition(jobListingDetails.getPosition());
         jobListing.setDescription(jobListingDetails.getDescription());
         jobListing.setLanguage(jobListingDetails.getLanguage());

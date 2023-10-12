@@ -6,6 +6,7 @@ import com.vasilesofron.InternshipApplicationPortal.service.EmployerService;
 import com.vasilesofron.InternshipApplicationPortal.service.JobListingService;
 import jakarta.annotation.Resource;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,9 @@ import java.util.NoSuchElementException;
 @RequestMapping("/employers")
 public class EmployerController {
 
-    @Resource
+    @Autowired
     private EmployerService employerService;
-    @Resource
+    @Autowired
     private JobListingService jobListingService;
 
     @GetMapping
@@ -42,7 +43,7 @@ public class EmployerController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No employer found.");
         }
     }
-
+    // Same ExceptionHandler in every controller.
     @ExceptionHandler(HttpClientErrorException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleBadRequest(HttpClientErrorException exception){
@@ -55,9 +56,4 @@ public class EmployerController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
-    /*@PostMapping ("/create-new-job-listing/{employerId}")
-    public ResponseEntity<?> createNewJobListing(@PathVariable Long employerId, @RequestBody JobListing jobListing){
-        return  new ResponseEntity<>(jobListingService.createJobListing(employerId, jobListing), HttpStatus.CREATED);
-    }
-    */
 }

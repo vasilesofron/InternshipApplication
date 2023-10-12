@@ -31,10 +31,15 @@ public class ApplicationService {
     @Resource
     private EmployerRepository employerRepository;
 
+
+    // We access the methods from the Controller.
     public Application saveApplication(Long applicantId, Long jobListingId) {
+        // Get the applicant via the applicantId
         Applicant applicant = applicantRepository.findById(applicantId).orElseThrow(() -> new EntityNotFoundException("There is not applicant with ID: " + applicantId));
+        // Get the JobListing via the jobListingId
         JobListing jobListing = jobListingRepository.findById(jobListingId)
                 .orElseThrow(() -> new EntityNotFoundException("There is no JobListing with the ID: "));
+        // Create the application and save it to ApplicationRepository.
         Application application = new Application(applicant, jobListing);
         return applicationRepository.save(application);
     }
@@ -44,15 +49,15 @@ public class ApplicationService {
     }
 
     public List<JobListing> getAllJobListingByEmployer(Long employerId) {
-        //Employer employer = employerRepository.findById(employerId)
-               // .orElseThrow(() -> new EntityNotFoundException("There is no employer with ID: " + employerId));
         return jobListingRepository.findByEmployerId(employerId);
     }
 
     public List<Applicant> getAllApplicantByJobListing(Long jobListingId) {
+        // Create a new ArrayList - Here we store the found applicants.
         List<Applicant> applicants = new ArrayList<>();
         List<Application> applications = applicationRepository.findAll();
         for (Application application : applications) {
+            // If we found a matching application with the jobListingId we add it to the ArrayList.
             if (Objects.equals(application.getJobListing().getId(), jobListingId)) {
                 applicants.add(application.getApplicant());
             }

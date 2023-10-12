@@ -10,7 +10,8 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne // This allows the applicant to apply multiple times at the same job.
+    // Not necessarily wrong, but preferably there should be only one application per candidate for the same position.
     @JoinColumn(name = "applicant_id", referencedColumnName = "id")
     Applicant applicant;
 
@@ -40,6 +41,14 @@ public class Application {
     }
 
     public Application() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
 

@@ -5,5 +5,5 @@ import org.springframework.http.HttpStatus;
 
 public class ApiError {
 
-
+    // OUT OF TIME, APOLOGIES :(
 }

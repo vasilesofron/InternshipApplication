@@ -3,6 +3,7 @@ package com.vasilesofron.InternshipApplicationPortal.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "job_listing")
@@ -13,6 +14,7 @@ public class JobListing {
     private Long id;
 
     @Column(name = "position")
+    @NotBlank(message = "Job position must not be blank.")
     private String position;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -20,9 +22,13 @@ public class JobListing {
     @JsonIgnore
     private Employer employer;
     @Column(name = "description")
+    @NotBlank(message = "Job description must not be blank.")
     private String description;
     @Column(name = "language")
+    @NotBlank(message = "Job language must not be blank.")
     private String language;
+
+    // More fields can be created using the same logic found in the lines above.
 
     public Long getId() {
         return id;

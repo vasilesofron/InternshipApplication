@@ -2,6 +2,7 @@ package com.vasilesofron.InternshipApplicationPortal.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,10 @@ public class Employer {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank(message = "Employer name must not be blank.")
     private String name;
 
+    // jobListings are a ... List ofc :D
     @OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<JobListing> jobListings = new ArrayList<>();
 
