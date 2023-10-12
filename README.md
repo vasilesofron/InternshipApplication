@@ -1,3 +1,4 @@
+![Sofron_Vasile_ERD_ddroidd](https://github.com/vasilesofron/ddroid_InternshipApplicationPortal/assets/73953076/bb7ccad6-ed37-4340-a184-754f2b9aa360)
 # ddroid_InternshipApplicationPortal - Vasile Sofron
 
 This is a project created for the ddroidd Boot Camp 2023, Java Backend.
