@@ -10,11 +10,11 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "applicant_id", referencedColumnName = "id")
     Applicant applicant;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "joblisting_id", referencedColumnName = "id")
     JobListing jobListing;
 

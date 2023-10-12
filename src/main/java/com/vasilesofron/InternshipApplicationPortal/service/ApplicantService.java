@@ -37,8 +37,6 @@ public class ApplicantService {
     }
 
     public List<Applicant> findAllApplicantsByEmployer(Long employerId) {
-        //Employer employer = employerRepository.findById(employerId)
-                //.orElseThrow(() -> new EntityNotFoundException("There is no employer with ID: " + employerId));
         List<JobListing> jobs = jobListingRepository.findJobListingByEmployerId(employerId);
         List<Application> applications = applicationRepository.findAll();
         List<Applicant> applicants = new ArrayList<>();

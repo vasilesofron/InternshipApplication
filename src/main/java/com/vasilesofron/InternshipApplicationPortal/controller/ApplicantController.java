@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/applicants")
@@ -39,6 +40,15 @@ public class ApplicantController {
     @GetMapping("/{employerId}")
     public ResponseEntity<?> findApplicantsByEmployer(@PathVariable Long employerId){
         return new ResponseEntity<>(applicantService.findAllApplicantsByEmployer(employerId), HttpStatus.OK);
+    }
+
+
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleNoSuchElementFoundException(
+            NoSuchElementException exception
+    ){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
 }
