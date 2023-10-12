@@ -38,6 +38,11 @@ public class JobListingController {
     }
 
 
+    @GetMapping("/get-job-listing-by-employer-id/{employerId}")
+    public ResponseEntity<?> getJobListingByEmployer(@PathVariable Long employerId){
+        return new ResponseEntity<>(jobListingService.findAllByEmployer(employerId), HttpStatus.OK);
+    }
+
 
 
 }

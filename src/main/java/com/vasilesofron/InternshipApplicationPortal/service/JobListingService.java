@@ -71,4 +71,8 @@ public class JobListingService {
         jobListingRepository.delete(jobListing);
     }
 
+    public List<JobListing> findAllByEmployer(Long employerId){
+        return jobListingRepository.findByEmployerId(employerId);
+    }
+
 }
