@@ -1,6 +1,4 @@
-# ddroid_InternshipApplicationPortal - Vasile Sofron
-
-This is a project created for the ddroidd Boot Camp 2023, Java Backend.
+InternshipApplication
 
 **This project has been created using the SpringBoot 3.1.4 and Java 17.**
 
@@ -33,7 +31,7 @@ The project has the following endpoints:
 
 In this README I have also added the ERD(entity relationship diagram).
 
-Unfortunately, I was unable to finish the entire project before the deadline. There are a few errors in the project, such as 'The same applicant can apply to the same position multiple times. Also, there could have been a larger number of unit tests. 
+More things need to be added, soon!
 
 Thank you! 
 
